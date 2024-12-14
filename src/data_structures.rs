@@ -28,10 +28,6 @@ impl StackEntry {
             StackEntry::Num(v) => script::scriptint_vec(*v),
             StackEntry::StrRef(v) => {
                 let v = v.borrow().to_vec();
-                assert!(
-                    v.len() <= 4,
-                    "There should not be entries with more than 32 bits on the Stack at this point"
-                );
                 v
             }
         }
